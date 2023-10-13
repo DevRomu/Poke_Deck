@@ -7,18 +7,42 @@
 #   Character.create(name: "Luke", movie: movies.first)
 #   https://pokeapi.co/api/v2/pokemon/ - Pokemon API
 
-require 'net/http'
-require 'json'
+require "net/http"
+require "json"
+
+url3 = URI("https://pokeapi.co/api/v2/move/")
+response3 = Net::HTTP.get(url3)
+json_data3 = JSON.parse(response3)
+
+json_data3["results"].each do |move|
+  move_url = URI(move["url"])
+  response3 = Net::HTTP.get(move_url)
+  json_data3 = JSON.parse(response3)
+
+  Move.create(
+    name:     move["name"],
+    power:    json_data3["power"],
+    accuracy: json_data3["accuracy"]
+  )
+end
+
+
+
+url2 = URI("https://pokeapi.co/api/v2/type/")
+response2 = Net::HTTP.get(url2)
+json_data2 = JSON.parse(response2)
+
+json_data2["results"].each do |type|
+  Type.create(
+    name: type["name"]
+  )
+end
 
 url = URI("https://pokeapi.co/api/v2/pokemon/")
 response = Net::HTTP.get(url)
 json_data = JSON.parse(response)
-
-
-
 # iterate through JSON data and create records in the database
 json_data["results"].each do |pokemon|
-
   url2 = URI(pokemon["url"])
   response2 = Net::HTTP.get(url2)
   json_data2 = JSON.parse(response2)
