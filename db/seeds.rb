@@ -10,6 +10,15 @@
 require "net/http"
 require "json"
 
+destroy_pokemon_type = PokemonType.destroy_all
+destroy_pokemon_move = PokemonMove.destroy_all
+destroy_pokemon = Pokemon.destroy_all
+destroy_move = Move.destroy_all
+destroy_type = Type.destroy_all
+
+
+
+
 url3 = URI("https://pokeapi.co/api/v2/move/")
 response3 = Net::HTTP.get(url3)
 json_data3 = JSON.parse(response3)
@@ -20,9 +29,9 @@ json_data3["results"].each do |move|
   json_data3 = JSON.parse(response3)
 
   Move.create(
-    name:     move["name"],
-    power:    json_data3["power"],
-    accuracy: json_data3["accuracy"]
+    move_name:   move["name"],
+    power:       json_data3["power"],
+    accuracy:    json_data3["accuracy"]
   )
 end
 
@@ -32,7 +41,7 @@ json_data2 = JSON.parse(response2)
 
 json_data2["results"].each do |type|
   Type.create(
-    name: type["name"]
+    type_name: type["name"]
   )
 end
 
@@ -47,7 +56,7 @@ json_data["results"].each do |pokemon|
 
   # create a new record in the database
   pokemon = Pokemon.create(
-    name:      pokemon["name"],
+    pokemon_name:      pokemon["name"],
     image_url: json_data2["sprites"]["front_default"],
     hp:        json_data2["stats"][0]["base_stat"],
     attack:    json_data2["stats"][1]["base_stat"],
@@ -58,12 +67,12 @@ json_data["results"].each do |pokemon|
   )
 
   json_data2["types"].each do |type_name|
-    type = Type.find_by(name: type_name)
+    type = Type.find_by(type_name: type_name["type"]["name"])
     PokemonType.create(pokemon: pokemon, type: type)
   end
 
   json_data2["moves"].each do |move_name|
-    move = Move.find_by(name: move_name)
+    move = Move.find_by(move_name: move_name["move"]["name"])
     PokemonMove.create(pokemon: pokemon, move: move)
   end
 end
