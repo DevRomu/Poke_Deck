@@ -26,8 +26,6 @@ json_data3["results"].each do |move|
   )
 end
 
-
-
 url2 = URI("https://pokeapi.co/api/v2/type/")
 response2 = Net::HTTP.get(url2)
 json_data2 = JSON.parse(response2)
@@ -48,7 +46,7 @@ json_data["results"].each do |pokemon|
   json_data2 = JSON.parse(response2)
 
   # create a new record in the database
-  Pokemon.create(
+  pokemon = Pokemon.create(
     name:      pokemon["name"],
     image_url: json_data2["sprites"]["front_default"],
     hp:        json_data2["stats"][0]["base_stat"],
@@ -58,4 +56,14 @@ json_data["results"].each do |pokemon|
     spdef:     json_data2["stats"][4]["base_stat"],
     speed:     json_data2["stats"][5]["base_stat"]
   )
+
+  json_data2["types"].each do |type_name|
+    type = Type.find_by(name: type_name)
+    PokemonType.create(pokemon: pokemon, type: type)
+  end
+
+  json_data2["moves"].each do |move_name|
+    move = Move.find_by(name: move_name)
+    PokemonMove.create(pokemon: pokemon, move: move)
+  end
 end
