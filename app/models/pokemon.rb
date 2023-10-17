@@ -6,5 +6,5 @@ class Pokemon < ApplicationRecord
 
   validates :pokemon_name, :image_url, :hp, :attack, :defense, :spatk, :spdef, :speed, presence: true
   validates :pokemon_name, :image_url, uniqueness: true
-  validates :hp, :attack, :defense, :spatk, :spdef, :speed, numericality: {only_integer: true greater_than: 0}
+  validates :hp, :attack, :defense, :spatk, :spdef, :speed, numericality: {only_integer: true, greater_than: 0}
 end

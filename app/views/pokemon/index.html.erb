@@ -1,0 +1,7 @@
+<h1>Pokemon</h1>
+<p>Something</p>
+
+<% @pokemons.each do |pokemon| %>
+  <%= pokemon.pokemon_name %>
+  <img src=<%=pokemon.image_url%>>
+<% end %>
