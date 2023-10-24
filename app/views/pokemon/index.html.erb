@@ -1,7 +1,8 @@
 <h1>Pokemon</h1>
 <p>Something</p>
 
+<%= paginate @pokemons %>
 <% @pokemons.each do |pokemon| %>
-  <%= pokemon.pokemon_name %>
-  <img src=<%=pokemon.image_url%>>
+  <%= link_to pokemon.pokemon_name, pokemon%>
+  <a href="/pokemon/<%=pokemon.id %>"><img src=<%=pokemon.image_url%> alt="image of <%= pokemon.pokemon_name %>"></a>
 <% end %>
