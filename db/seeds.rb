@@ -19,7 +19,7 @@ destroy_type = Type.destroy_all
 
 
 
-url3 = URI("https://pokeapi.co/api/v2/move/")
+url3 = URI("https://pokeapi.co/api/v2/move/?limit=165")
 response3 = Net::HTTP.get(url3)
 json_data3 = JSON.parse(response3)
 
@@ -45,7 +45,7 @@ json_data2["results"].each do |type|
   )
 end
 
-url = URI("https://pokeapi.co/api/v2/pokemon/?limit=1292")
+url = URI("https://pokeapi.co/api/v2/pokemon/?limit=151")
 response = Net::HTTP.get(url)
 json_data = JSON.parse(response)
 # iterate through JSON data and create records in the database

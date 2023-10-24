@@ -5,5 +5,7 @@ class PokemonController < ApplicationController
 
     def show
         @pokemon = Pokemon.find(params[:id])
+        @moves = @pokemon.moves
+        @types = @pokemon.types
     end
 end

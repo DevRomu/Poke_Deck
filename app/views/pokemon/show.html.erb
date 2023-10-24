@@ -1,2 +1,15 @@
 <h1><%= @pokemon.pokemon_name%></h1>
-<p>Something</p>
+
+<ul>
+<p>Types:</P>
+<% @types.each do |types|%>
+  <li><%=types.type_name%></li>
+<%end%>
+</ul>
+
+<ul>
+<p>Moves:</P>
+<% @moves.each do |move|%>
+  <li><%=move.move_name%></li>
+<%end%>
+</ul>
