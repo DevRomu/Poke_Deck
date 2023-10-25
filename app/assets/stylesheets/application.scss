@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import "custom";
+
+nav {
+  padding: 20px;
+}
+
+.navbar-nav li {
+  margin-right: 20px;
+}
+
+.navbar-nav li a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  width: 200px; /* adjust this value to your desired size */
+}
+
+.pagination {
+  padding: 20px;
+}
+
+.pagination .page-link {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  color: #212529;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #212529;
+  border-color: #212529;
+  color: #fff;
+}
+
+.pagination .page-link:hover {
+  background-color: #ced4da;
+  border-color: #ced4da;
+  color: #212529;
+}
+
+.caption {
+  background-color: black;
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.caption a {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-outline-success {
+  color: #fdfdfd;
+  background-color: rgb(29, 29, 29);
+  border-color: #ffffff;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* height of the footer */
+}

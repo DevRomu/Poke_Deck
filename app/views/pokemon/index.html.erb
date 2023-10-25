@@ -1,8 +1,87 @@
-<h1>Pokemon</h1>
-<p>Something</p>
+<h1 class = "display-2"> Pokemon Wiki For Trainers</h1>
 
-<%= paginate @pokemons %>
-<% @pokemons.each do |pokemon| %>
-  <%= link_to pokemon.pokemon_name, pokemon%>
-  <a href="/pokemon/<%=pokemon.id %>"><img src=<%=pokemon.image_url%> alt="image of <%= pokemon.pokemon_name %>"></a>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Pokemon Database", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home"%>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "About"%>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <% @pokemons.each do |pokemon| %>
+    <div class="col-md-4">
+      <div class="container text-center">
+        <%= link_to pokemon_path(pokemon) do %>
+          <img src=<%= pokemon.image_url %> alt="image of <%= pokemon.pokemon_name %>">
+          <div class="caption">
+            <h4><%= pokemon.pokemon_name %></h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <% if @pokemons.prev_page %>
+      <li class="page-item">
+        <%= link_to "Previous", request.params.merge(page: @pokemons.prev_page), class: "page-link" %>
+      </li>
+    <% else %>
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+    <% end %>
+    <% @pokemons.total_pages.times do |i| %>
+      <% if @pokemons.current_page == i + 1 %>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#"><%= i + 1 %></a>
+        </li>
+      <% else %>
+        <li class="page-item">
+          <%= link_to i + 1, request.params.merge(page: i + 1), class: "page-link" %>
+        </li>
+      <% end %>
+    <% end %>
+    <% if @pokemons.next_page %>
+      <li class="page-item">
+        <%= link_to "Next", request.params.merge(page: @pokemons.next_page), class: "page-link" %>
+      </li>
+    <% else %>
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
+<footer class="bg-light py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p>&copy; 2023 By Friends With The Benefits Group</p>
+      </div>
+      <div class="col-md-6 text-md-right">
+        <a href="#" class="ml-auto">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
