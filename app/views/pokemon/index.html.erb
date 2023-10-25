@@ -1,18 +1,19 @@
 
-
-<div class="row">
-  <% @pokemons.each do |pokemon| %>
-    <div class="col-md-4">
-      <div class="container text-center">
-        <%= link_to pokemon_path(pokemon) do %>
-          <img src=<%= pokemon.image_url %> alt="image of <%= pokemon.pokemon_name %>">
-          <div class="caption">
-            <h4><%= pokemon.pokemon_name %></h4>
-          </div>
-        <% end %>
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+  <div class="row">
+    <% @pokemons.each do |pokemon| %>
+      <div class="col-md-4">
+        <div class="container text-center">
+          <%= link_to pokemon_path(pokemon) do %>
+            <img src=<%= pokemon.image_url %> alt="image of <%= pokemon.pokemon_name %>">
+            <div class="caption">
+              <h4><%= pokemon.pokemon_name %></h4>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <nav aria-label="Page navigation example">
