@@ -8,4 +8,9 @@ class PokemonController < ApplicationController
         @moves = @pokemon.moves
         @types = @pokemon.types
     end
+
+    def search
+        wildcard_search = "%#{params[:keywords]}%"
+        @pokemons = Pokemon.where('pokemon_name LIKE ?', wildcard_search)
+    end
 end
