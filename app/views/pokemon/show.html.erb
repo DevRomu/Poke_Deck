@@ -27,7 +27,7 @@
   <ul>
   <li><h4>Moves:</h4></li>
     <% @moves.each do |move|%>
-      <li><%=move.move_name%></li>
+      <li><%=link_to move.move_name, move%></li>
     <%end%>
   </ul>
   </div>
