@@ -10,13 +10,13 @@
 </div>
 <div class="container text-center">
   <ul>
-  <h4>Type:</h4>
+  <li><h4>Type:</h4></li>
     <% @types.each do |types|%>
       <li><%=types.type_name%></li>
     <%end%>
   </ul>
   <ul>
-  <h4>Stats:</h4>
+  <li><h4>Stats:</h4><li>
     <li>HP: <%= @pokemon.hp %></li>
     <li>ATK: <%= @pokemon.attack %></li>
     <li>DEF: <%= @pokemon.defense %></li>
@@ -25,7 +25,7 @@
     <li>SPD: <%= @pokemon.speed %></li>
   </ul>
   <ul>
-  <h4>Moves:</h4>
+  <li><h4>Moves:</h4></li>
     <% @moves.each do |move|%>
       <li><%=move.move_name%></li>
     <%end%>
