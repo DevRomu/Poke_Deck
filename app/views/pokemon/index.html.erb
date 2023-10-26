@@ -6,13 +6,9 @@
       <div class="container text-center">
         <%= link_to pokemon_path(pokemon) do %>
           <img src=<%= pokemon.image_url %> alt="image of <%= pokemon.pokemon_name %>">
-          <div class="<%= pokemon.types.first.type_name %>">
+          <div class="caption">
             <h4><%= pokemon.pokemon_name %></h4>
           </div>
-          <% if pokemon.types.second %>
-            <div class="<%= pokemon.types.second.type_name %>">
-            </div>
-          <% end %>
         <% end %>
       </div>
     </div>

@@ -29,9 +29,9 @@
           <a href="/about">About</a>
         </li>
       </ul>
-      <%= form_with(url:search_pokemon_index_path, method: :get, local: true) do %>
-        <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search for Pokemon') %>
-        <%= submit_tag("Search", class: "button is-primary") %>
+      <%= form_with(url: search_pokemon_index_path, method: :get, local: true) do %>
+      <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search for Pokemon') %>
+      <%= submit_tag("Search", class: "button is-primary") %>
       <% end %>
     </div>
   </div>
