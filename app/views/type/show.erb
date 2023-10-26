@@ -1,0 +1,13 @@
+<div class="container text-center">
+  <div class="<%= @type.type_name %>">
+    <h1><%= @type.type_name%></h1>
+  </div>
+</div>
+<div class="container text-center">
+  <ul>
+  <li><h4>Pokemon of this type:</h4></li>
+    <% @pokemons.each do |pokemon|%>
+      <li><%=link_to pokemon.pokemon_name, pokemon%></li>
+    <%end%>
+  </ul>
+  </div>

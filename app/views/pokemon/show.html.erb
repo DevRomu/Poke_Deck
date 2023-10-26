@@ -12,7 +12,7 @@
   <ul>
   <li><h4>Type:</h4></li>
     <% @types.each do |types|%>
-      <li><%=types.type_name%></li>
+      <li><%=link_to types.type_name, types%></li>
     <%end%>
   </ul>
   <ul>

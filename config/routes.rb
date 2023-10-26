@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :move
 
+  resources :type
+
   get "/about", to: 'about#index'
 end
