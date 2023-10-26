@@ -1,15 +1,33 @@
-<h1><%= @pokemon.pokemon_name%></h1>
-
-<ul>
-<p>Types:</P>
-<% @types.each do |types|%>
-  <li><%=types.type_name%></li>
-<%end%>
-</ul>
-
-<ul>
-<p>Moves:</P>
-<% @moves.each do |move|%>
-  <li><%=move.move_name%></li>
-<%end%>
-</ul>
+<div class="container text-center">
+  <img src=<%= @pokemon.image_url %> alt="image of <%= @pokemon.pokemon_name %>">
+  <div class="<%= @pokemon.types.first.type_name %>">
+    <h1><%= @pokemon.pokemon_name%></h1>
+  </div>
+  <% if @pokemon.types.second %>
+    <div class="<%= @pokemon.types.second.type_name %>">
+    </div>
+  <% end %>
+</div>
+<div class="container text-center">
+  <ul>
+  <h4>Type:</h4>
+    <% @types.each do |types|%>
+      <li><%=types.type_name%></li>
+    <%end%>
+  </ul>
+  <ul>
+  <h4>Stats:</h4>
+    <li>HP: <%= @pokemon.hp %></li>
+    <li>ATK: <%= @pokemon.attack %></li>
+    <li>DEF: <%= @pokemon.defense %></li>
+    <li>SP.ATK: <%= @pokemon.spatk %></li>
+    <li>SP.DEF: <%= @pokemon.spdef %></li>
+    <li>SPD: <%= @pokemon.speed %></li>
+  </ul>
+  <ul>
+  <h4>Moves:</h4>
+    <% @moves.each do |move|%>
+      <li><%=move.move_name%></li>
+    <%end%>
+  </ul>
+  </div>

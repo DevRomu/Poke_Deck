@@ -1,8 +1,26 @@
 <p class="mb-5">
   Pokemon found when search for: <%= params[:keywords] %>
 </p>
-<ul>
-  <% @pokemons.each do |pokemon| %>
-    <li><%= link_to pokemon.pokemon_name, pokemon %></li>
+<div class="row">
+  <% if @pokemons.empty? %>
+    <strong>No results found.</strong>
+  <% else %>
+    <% @pokemons.each do |pokemon| %>
+      <div class="col-md-4">
+        <div class="container text-center">
+          <%= link_to pokemon_path(pokemon) do %>
+            <img src=<%= pokemon.image_url %> alt="image of <%= pokemon.pokemon_name %>">
+            <div class="<%= pokemon.types.first.type_name %>">
+              <h4><%= pokemon.pokemon_name %></h4>
+            </div>
+          <% end %>
+          <% if pokemon.types.second %>
+                <div class="<%= pokemon.types.second.type_name %>">
+                </div>
+              <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
+  

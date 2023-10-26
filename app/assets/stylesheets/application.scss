@@ -90,6 +90,159 @@ nav {
   background-color: rgb(29, 29, 29);
   border-color: rgb(29, 29, 29);
 }
+.normal{
+  background-color: rgb(168, 168, 168);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.grass{
+  background-color: rgb(26, 121, 26);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.fire{
+  background-color: rgb(173, 29, 29);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.water{
+  background-color: rgb(10, 50, 180);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.electric{
+  background-color: rgb(193, 177, 32);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.bug{
+  background-color: rgb(134, 152, 52);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.psychic{
+  background-color: rgb(187, 0, 255);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.ghost{
+  background-color: rgb(56, 4, 96);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.dark{
+  background-color: rgb(25, 25, 25);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.fighting{
+  background-color: rgb(186, 100, 47);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.ice{
+  background-color: rgb(0, 163, 184);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.fairy{
+  background-color: rgb(216, 108, 160);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.ground{
+  background-color: rgb(103, 72, 28);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.rock{
+  background-color: rgb(104, 86, 61);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.steel{
+  background-color: rgb(44, 59, 78);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.flying{
+  background-color: rgb(109, 125, 190);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.poison{
+  background-color: rgb(85, 10, 171);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.dragon{
+  background-color: rgb(3, 138, 113);
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+ul{
+  padding-right: 30px;
+}
+
+li{
+  height: auto;
+  list-style: none;
+  text-transform: capitalize;
+}
 
 footer {
   position: relative;
