@@ -1,0 +1,51 @@
+
+
+<div class="row">
+  <% @moves.each do |move| %>
+    <div class="col-md-4">
+      <div class="container text-center">
+        <%= link_to move_path(move) do %>
+          <h4><%= move.move_name %></h4>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <% if @moves.prev_page %>
+      <li class="page-item">
+        <%= link_to "Previous", request.params.merge(page: @moves.prev_page), class: "page-link" %>
+      </li>
+    <% else %>
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+    <% end %>
+    <% @moves.total_pages.times do |i| %>
+      <% if @moves.current_page == i + 1 %>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#"><%= i + 1 %></a>
+        </li>
+      <% else %>
+        <li class="page-item">
+          <%= link_to i + 1, request.params.merge(page: i + 1), class: "page-link" %>
+        </li>
+      <% end %>
+    <% end %>
+    <% if @moves.next_page %>
+      <li class="page-item">
+        <%= link_to "Next", request.params.merge(page: @moves.next_page), class: "page-link" %>
+      </li>
+    <% else %>
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+      </li>
+    <% end %>
+    <li class="page-item">
+      <%= link_to "Last", request.params.merge(page: @moves.total_pages), class: "page-link" %>
+    </li>
+  </ul>
+</nav>
+

@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <h1><%= @move.move_name%></h1>
+</div>
+<div class="container text-center">
+  <ul>
+    <li><h4>Stats:</h4><li>
+    <li>Power: <%= @move.power %></li>
+    <li>Accuracy: <%= @move.accuracy %></li>
+  </ul>
+  <ul>
+  <li><h4>Pokemon with this move:</h4></li>
+    <% @pokemons.each do |pokemon|%>
+      <li><%=link_to pokemon.pokemon_name, pokemon%></li>
+    <%end%>
+  </ul>
+  </div>
